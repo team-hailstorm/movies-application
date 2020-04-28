@@ -7,7 +7,7 @@ sayHello('World');
 /**
  * require style imports
  */
-const {getMovies} = require('./api.js');
+const {getMovies, createMovie} = require('./api.js');
 
 $(document).ready( () => {
 
@@ -27,8 +27,11 @@ $(document).ready( () => {
 
       $('#movie-display').html(movie);
       $('#loading').css('display', 'none');
-
     });
+
+    createMovie();
+
+
   }).catch((error) => {
     // alert('Oh no! Something went wrong.\nCheck the console for details.')
     console.log(error);
