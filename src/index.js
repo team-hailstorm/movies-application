@@ -9,12 +9,30 @@ sayHello('World');
  */
 const {getMovies} = require('./api.js');
 
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
-  movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
-  });
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
-  console.log(error);
+$(document).ready( () => {
+
+  getMovies().then((movies) => {
+    console.log('Here are all the movies:');
+    let movie = ``;
+    movies.forEach(({title, rating, id}) => {
+      console.log(`id#${id} - ${title} - rating: ${rating}`);
+      movie += `
+          <ul>
+            <li>ID: ${id}</li>
+            <li>Title: ${title}</li>
+            <li>Rating: ${rating}</li>
+          </ul>
+      
+      `;
+
+      $('#movie-display').html(movie);
+      $('#loading').css('display', 'none');
+
+    });
+  }).catch((error) => {
+    // alert('Oh no! Something went wrong.\nCheck the console for details.')
+    console.log(error);
+  })
+
+
 });
