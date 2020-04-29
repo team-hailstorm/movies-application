@@ -26,10 +26,10 @@ $(document).ready( () => {
   });
 
   // Edit Movie
-    $('#edit-button').on('click', function (e) {
-        e.preventDefault();
-        console.log('hello');
-    });
+  //   $('ul').on('click', function (e) {
+  //       e.preventDefault();
+  //       console.log('hello');
+  //   });
 
 
   getMovies().then((movies) => {
@@ -42,16 +42,28 @@ $(document).ready( () => {
             <li>ID: ${id}</li>
             <li>Title: ${title}</li>
             <li>Rating: ${rating}</li>
+             </ul>
             <form>
-                <button id="edit-button">Edit</button>
+                <button class="edit-button" data-id="${id}">Edit</button>
                 <button>Delete</button>
             </form>
-          </ul>
+         
       
       `;
+        $('#movie-display').html(movie);
+        $('#loading').css('display', 'none');
+          $('.edit-button').on('click', function (e) {
+              e.preventDefault();
+
+
+    console.log($(this).attr('data-id'));
     });
-    $('#movie-display').html(movie);
-    $('#loading').css('display', 'none');
+    // $('#movie-display').html(movie);
+    // $('#loading').css('display', 'none');
+    //   $('ul').on('click', function (e) {
+    //       e.preventDefault();
+    //       console.log(this.children[0]);
+      });
   }).catch((error) => {
     console.log(error);
   });
