@@ -3,10 +3,11 @@ html, body {
 }
 
 .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
+    /*position: relative;*/
+    /*top: 50%;*/
+    /*transform: translateY(-100%);*/
     text-align: center;
+    width: 20vw;
 }
 
 ul {
