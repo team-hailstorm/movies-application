@@ -11,6 +11,15 @@ const {getMovies, createMovie} = require('./api.js');
 
 $(document).ready( () => {
 
+  $('#submit-button').on('click', function(e) {
+    e.preventDefault();
+    let value = $('#movie-title').val();
+    console.log('Movie input text: ' + value);
+    // $('#movie-display').html
+   createMovie();
+   getMovies();
+  });
+
   getMovies().then((movies) => {
     console.log('Here are all the movies:');
     let movie = ``;
@@ -25,11 +34,12 @@ $(document).ready( () => {
       
       `;
 
-      $('#movie-display').html(movie);
-      $('#loading').css('display', 'none');
-    });
 
-    createMovie();
+    });
+    $('#movie-display').html(movie);
+    $('#loading').css('display', 'none');
+
+
 
 
   }).catch((error) => {
