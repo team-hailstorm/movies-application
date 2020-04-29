@@ -7,16 +7,21 @@ sayHello('World');
 /**
  * require style imports
  */
-const {getMovies, createMovie} = require('./api.js');
+const {getMovies, createMovie, testMovie} = require('./api.js');
 
 $(document).ready( () => {
 
   $('#submit-button').on('click', function(e) {
     e.preventDefault();
-    let value = $('#movie-title').val();
-    console.log('Movie input text: ' + value);
+    let titleValue = $('#movie-title').val();
+    let ratingValue = $('#movie-rating').val();
+
+    console.log('Movie input text: ' + titleValue + "" + ratingValue);
     // $('#movie-display').html
-   createMovie();
+   createMovie({
+      "title": titleValue,
+      "rating": ratingValue
+    });
    getMovies();
   });
 
