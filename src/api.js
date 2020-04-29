@@ -18,7 +18,18 @@ module.exports = {
           .then( response => response.json() )
           .then( data => console.log(data) )
           .catch( error => console.error(error));
-    }
+    },
 
-
+  editMovie: (movieObj, id) => {
+    fetch(`/api/movies/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(movieObj),
+    })
+        .then( response => response.json() )
+        .then( data => console.log(data) )
+        .catch( error => console.error(error));
+  }
 };

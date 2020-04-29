@@ -7,7 +7,7 @@ sayHello('World');
 /**
  * require style imports
  */
-const {getMovies, createMovie, testMovie} = require('./api.js');
+const {getMovies, createMovie, editMovie} = require('./api.js');
 
 $(document).ready( () => {
 
@@ -25,13 +25,7 @@ $(document).ready( () => {
    getMovies();
   });
 
-  // Edit Movie
-  //   $('ul').on('click', function (e) {
-  //       e.preventDefault();
-  //       console.log('hello');
-  //   });
-
-
+// getMovies - creates html structure for movie listings
   getMovies().then((movies) => {
     console.log('Here are all the movies:');
     let movie = ``;
@@ -44,29 +38,31 @@ $(document).ready( () => {
             <li>Rating: ${rating}</li>
              </ul>
             <form>
-                <button class="edit-button" data-id="${id}">Edit</button>
+             <button class="edit-info" data-id="${title}">Edit</button>
+                <button class="save-button" data-id="${id}">Save</button>
                 <button>Delete</button>
-                <button class="pull-movie" data-id="${title}/${rating}">Pull Movie Info</button>
             </form>
             <div class="edit-info"></div>
       `;
+
+
         $('#movie-display').html(movie);
         $('#loading').css('display', 'none');
-          $('.edit-button').on('click', function (e) {
+          $('.save-button').on('click', function (e) {
               e.preventDefault();
+              let idMovie = $(this).attr('data-id');
+              // editMovie(movieObj, id);
 
     console.log($(this).attr('data-id'));
     });
 
-          $('.pull-movie').on('click', function (e) {
+          $('.edit-info').on('click', function (e) {
                 e.preventDefault();
-              // let $movieBeingClicked = $(this).attr('data-id') - 1;
-              // getMovies().then( data => console.log(data[$movieBeingClicked].title));
+
               let titleMovie = $(this).attr('data-id');
-              let data = titleMovie.split('/');
+
               console.log(titleMovie);
-              console.log(data);
-                $(this).parent().next().html(`<input type="text" value="${data[0]}" >
+                $(this).parent().next().html(`<input type="text" value="${titleMovie}" >
                                        <select id="movie-rating">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
