@@ -1,8 +1,3 @@
-const testMovie = {
-  "title": "The Other Test Movie",
-      "rating": "3",
-
-};
 
 module.exports = {
   getMovies: () => {
@@ -12,13 +7,13 @@ module.exports = {
 
 
 
-    createMovie: () => {
+    createMovie: (movieObj) => {
       fetch("/api/movies", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(testMovie),
+        body: JSON.stringify(movieObj),
       })
           .then( response => response.json() )
           .then( data => console.log(data) )
