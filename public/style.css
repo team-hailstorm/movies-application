@@ -2,7 +2,7 @@ body {
     height: 100%;
     margin-right: 0 !important;
     padding-right: 0 !important;
-    background-color: #cf2c5166;
+    background-color: #1c1321;
 }
 #main-container {
     height: 100vh;
@@ -21,15 +21,23 @@ body {
 }
 
 #title {
+    font-family: 'Acme', sans-serif;
     width: 50vw;
+    color: white;
 }
 
+#add {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
 
+}
 form {
     width: 50vw;
 }
 
 #movie-display {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
     width: 50vw;
 }
 
