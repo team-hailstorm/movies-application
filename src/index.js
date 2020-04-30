@@ -48,31 +48,35 @@ $(document).ready( () => {
 
         $('#movie-display').html(movie);
         $('#loading').css('display', 'none');
-          $('.save-button').on('click', function (e) {
-              e.preventDefault();
-              let idMovie = $(this).attr('data-id');
-              // editMovie(movieObj, id);
-
-    console.log($(this).attr('data-id'));
-    });
-
           $('.edit-info').on('click', function (e) {
                 e.preventDefault();
 
               let titleMovie = $(this).attr('data-id');
-
               console.log(titleMovie);
                 $(this).parent().next().html(`<input type="text" value="${titleMovie}" >
-                                       <select id="movie-rating">
+                                       <select class="movie-rating">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select>`);
-
-
           });
+
+        $('.save-button').on('click', function (e) {
+            e.preventDefault();
+            let idMovie = $(this).attr('data-id');
+            let movieTitle = $(this).parent().next().children().first().val();
+            let ratingMovie = $(this).parent().next().children().first().next().val();
+            let movieObj = {
+                title: `${movieTitle}`,
+                rating: `${ratingMovie}`
+            };
+            console.log(movieObj);
+            editMovie(movieObj, idMovie);
+
+            console.log($(this).attr('data-id'));
+        });
     // $('#movie-display').html(movie);
     // $('#loading').css('display', 'none');
     //   $('ul').on('click', function (e) {

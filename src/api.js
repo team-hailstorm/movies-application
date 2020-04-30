@@ -21,6 +21,7 @@ module.exports = {
     },
 
   editMovie: (movieObj, id) => {
+    console.log('ID from api.js', id);
     fetch(`/api/movies/${id}`, {
       method: 'PUT',
       headers: {
