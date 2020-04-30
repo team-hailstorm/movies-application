@@ -49,8 +49,7 @@ $(document).ready( () => {
         $('#movie-display').html(movie);
         $('#loading').css('display', 'none');
           $('.edit-info').on('click', function (e) {
-                e.preventDefault();
-
+              e.preventDefault();
               let titleMovie = $(this).attr('data-id');
               console.log(titleMovie);
                 $(this).parent().next().html(`<input type="text" value="${titleMovie}" >
@@ -62,21 +61,7 @@ $(document).ready( () => {
                                             <option value="5">5</option>
                                         </select>`);
           });
-
-        $('.save-button').on('click', function (e) {
-            e.preventDefault();
-            let idMovie = $(this).attr('data-id');
-            let movieTitle = $(this).parent().next().children().first().val();
-            let ratingMovie = $(this).parent().next().children().first().next().val();
-            let movieObj = {
-                title: `${movieTitle}`,
-                rating: `${ratingMovie}`
-            };
-            console.log(movieObj);
-            editMovie(movieObj, idMovie);
-
-            console.log($(this).attr('data-id'));
-        });
+          activateSave()
     // $('#movie-display').html(movie);
     // $('#loading').css('display', 'none');
     //   $('ul').on('click', function (e) {
@@ -86,6 +71,20 @@ $(document).ready( () => {
   }).catch((error) => {
     console.log(error);
   });
+
+  function activateSave () {
+      $('.save-button').on('click', function () {
+          let idMovie = $(this).attr('data-id');
+          let movieTitle = $(this).parent().next().children().first().val();
+          let ratingMovie = $(this).parent().next().children().first().next().val();
+          let movieObj = {
+              title: `${movieTitle}`,
+              rating: `${ratingMovie}`
+          };
+          console.log(movieObj);
+          editMovie(movieObj, idMovie);
+      });
+  }
 
 
 });

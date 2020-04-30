@@ -29,8 +29,10 @@ module.exports = {
       },
       body: JSON.stringify(movieObj),
     })
-        .then( response => response.json() )
-        .then( data => console.log(data) )
+        .then( response => response.json().then( data => {
+          console.log('editeMovie json data', data);
+        }) )
         .catch( error => console.error(error));
+
   }
 };
