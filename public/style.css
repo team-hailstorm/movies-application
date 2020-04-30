@@ -2,6 +2,7 @@ body {
     height: 100%;
     margin-right: 0 !important;
     padding-right: 0 !important;
+    background-color: #cf2c5166;
 }
 #main-container {
     height: 100vh;
