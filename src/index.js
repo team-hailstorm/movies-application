@@ -41,7 +41,7 @@ $(document).ready( () => {
                 console.log(`id#${id} - ${title} - rating: ${rating}`);
                 movie += `
           <ul >
-            <li>ID: ${id}</li>
+            <li class="d-none">ID: ${id}</li>
             <li>Title: ${title}</li>
             <li>Rating: ${rating}</li>
              </ul>
