@@ -59,7 +59,7 @@ $(document).ready( () => {
                 //       e.preventDefault();
                 //       console.log(this.children[0]);
             });
-            activateSave()
+            activateSave();
             deleteButtonMovie();
         }).catch((error) => {
             console.log(error);
@@ -70,7 +70,8 @@ $(document).ready( () => {
 
 
   function activateSave () {
-      $('.save-button').on('click', function () {
+      $('.save-button').on('click', function (e) {
+          e.preventDefault();
           let idMovie = $(this).attr('data-id');
           let movieTitle = $(this).parent().next().children().first().val();
           let ratingMovie = $(this).parent().next().children().first().next().val();
@@ -80,6 +81,8 @@ $(document).ready( () => {
           };
           console.log(movieObj);
           editMovie(movieObj, idMovie);
+          updateMovies();
+
       });
   }
 
@@ -100,6 +103,7 @@ $(document).ready( () => {
                                             <option value="5">5</option>
                                         </select>`);
       });
+
   }
 
   function deleteButtonMovie () {
