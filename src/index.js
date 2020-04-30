@@ -12,7 +12,9 @@ const {getMovies, createMovie, editMovie, deleteMovie} = require('./api.js');
 $(document).ready( () => {
 
     //Add Movie
-  $('#submit-button').on('click', function() {
+  $('#submit-button').on('click', function(e) {
+      e.preventDefault();
+      renderLoading();
     let titleValue = $('#movie-title').val();
     let ratingValue = $('#movie-rating').val();
 
@@ -22,16 +24,22 @@ $(document).ready( () => {
       "title": titleValue,
       "rating": ratingValue
     });
-   getMovies();
+   updateMovies();
   });
 
+  function renderLoading () {
+      $('#movie-display').html('<p>Loading<span>.</span><span>.</span><span>.</span></p>')
+  }
+
 // getMovies - creates html structure for movie listings
-  getMovies().then((movies) => {
-    console.log('Here are all the movies:');
-    let movie = ``;
-    movies.forEach(({title, rating, id}) => {
-      console.log(`id#${id} - ${title} - rating: ${rating}`);
-      movie += `
+    function callMoviesFromJSON () {
+        renderLoading();
+        getMovies().then((movies) => {
+            console.log('Here are all the movies:');
+            let movie = ``;
+            movies.forEach(({title, rating, id}) => {
+                console.log(`id#${id} - ${title} - rating: ${rating}`);
+                movie += `
           <ul >
             <li>ID: ${id}</li>
             <li>Title: ${title}</li>
@@ -44,18 +52,22 @@ $(document).ready( () => {
             </form>
             <div class="edit-info"></div>
       `;
-      editMovieForm(movie);
-    // $('#movie-display').html(movie);
-    // $('#loading').css('display', 'none');
-    //   $('ul').on('click', function (e) {
-    //       e.preventDefault();
-    //       console.log(this.children[0]);
-      });
-      activateSave()
-      deleteButtonMovie();
-  }).catch((error) => {
-    console.log(error);
-  });
+                editMovieForm(movie);
+                // $('#movie-display').html(movie);
+                // $('#loading').css('display', 'none');
+                //   $('ul').on('click', function (e) {
+                //       e.preventDefault();
+                //       console.log(this.children[0]);
+            });
+            activateSave()
+            deleteButtonMovie();
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    callMoviesFromJSON();
+
 
   function activateSave () {
       $('.save-button').on('click', function () {
@@ -91,11 +103,17 @@ $(document).ready( () => {
   }
 
   function deleteButtonMovie () {
-      $('.delete-button').on('click', function () {
+      $('.delete-button').on('click', function (e) {
+            e.preventDefault();
             let idOfDeleteButton = $(this).attr('data-id');
             console.log(idOfDeleteButton);
             deleteMovie(idOfDeleteButton);
+            updateMovies();
       });
+  }
+
+  function updateMovies() {
+      callMoviesFromJSON();
   }
 
 });

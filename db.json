@@ -1,7 +1,7 @@
 {
   "movies": [
     {
-      "title": "Casablanca 3",
+      "title": "Casablanca 20",
       "rating": "1",
       "id": 1
     },
@@ -19,6 +19,36 @@
       "title": "Add New Movie So I can delete Later",
       "rating": "3",
       "id": 4
+    },
+    {
+      "title": "new movie title",
+      "rating": "1",
+      "id": 5
+    },
+    {
+      "title": "this is new movie",
+      "rating": "1",
+      "id": 6
+    },
+    {
+      "title": "NEW MOVIE TEST! ",
+      "rating": "3",
+      "id": 7
+    },
+    {
+      "title": "NEW NEW NEW MOVIE",
+      "rating": "1",
+      "id": 8
+    },
+    {
+      "title": "MORE NEW MOVIE",
+      "rating": "1",
+      "id": 9
+    },
+    {
+      "title": "AKLS:FJ:KJ:AJSF:KJAS:FLKSJ",
+      "rating": "1",
+      "id": 10
     }
   ]
 }
