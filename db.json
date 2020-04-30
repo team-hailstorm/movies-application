@@ -1,29 +1,49 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
+      "title": "Casablanca 21",
+      "rating": "5",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "title": "Star Wars 9",
+      "rating": "1",
       "id": 2
     },
     {
-      "title": "The Other Test Movie",
-      "rating": "3",
+      "title": "EDITED MOVIE",
+      "rating": "5",
       "id": 3
     },
     {
-      "title": "adsfadadf",
-      "rating": "1",
+      "title": "Add New Movie So I can delete Later",
+      "rating": "3",
       "id": 4
     },
     {
-      "title": "test",
+      "title": "new movie title",
       "rating": "1",
       "id": 5
+    },
+    {
+      "title": "this is new movie",
+      "rating": "1",
+      "id": 6
+    },
+    {
+      "title": "NEW MOVIE TEST! ",
+      "rating": "3",
+      "id": 7
+    },
+    {
+      "title": "NEW NEW NEW MOVIE",
+      "rating": "1",
+      "id": 8
+    },
+    {
+      "title": "MORE NEW MOVIE",
+      "rating": "1",
+      "id": 9
     }
   ]
 }
