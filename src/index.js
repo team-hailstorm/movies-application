@@ -28,7 +28,7 @@ $(document).ready( () => {
   });
 
   function renderLoading () {
-      $('#movie-display').html('<p>Loading<span>.</span><span>.</span><span>.</span></p>')
+      $('#movie-display').html('<p id="loading" class="mt-5 text-center">Loading<span>.</span><span>.</span><span>.</span></p>')
   }
 
 // getMovies - creates html structure for movie listings
@@ -40,10 +40,10 @@ $(document).ready( () => {
             movies.forEach(({title, rating, id}) => {
                 console.log(`id#${id} - ${title} - rating: ${rating}`);
                 movie += `
-          <ul >
-            <li>ID: ${id}</li>
-            <li>Title: ${title}</li>
-            <li>Rating: ${rating}</li>
+          <ul class="mt-3">
+            <li class="d-none ml-3">ID: ${id}</li>
+            <li class="ml-3"">Title: ${title}</li>
+            <li class="ml-3"">Rating: ${rating}</li>
              </ul>
             <form>
              <button class="edit-info" data-id="${title}">Edit</button>
@@ -53,11 +53,6 @@ $(document).ready( () => {
             <div class="edit-info"></div>
       `;
                 editMovieForm(movie);
-                // $('#movie-display').html(movie);
-                // $('#loading').css('display', 'none');
-                //   $('ul').on('click', function (e) {
-                //       e.preventDefault();
-                //       console.log(this.children[0]);
             });
             activateSave();
             deleteButtonMovie();

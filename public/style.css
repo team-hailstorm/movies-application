@@ -1,7 +1,53 @@
-html, body {
+body {
     height: 100%;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    background-color: #1c1321;
+}
+#main-container {
+    height: 100vh;
+    width: 20vw;
+}
+#background {
+    background-image: url("movie-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 48vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
 }
 
+#title {
+    font-family: 'Acme', sans-serif;
+    width: 50vw;
+    color: white;
+}
+
+#add {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+}
+form {
+    width: 50vw;
+}
+
+#movie-display {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    width: 50vw;
+}
+
+#movie-title {
+    width: 10vw;
+}
+
+ul, li {
+    width: 43vw;
+}
 .container {
     /*position: relative;*/
     /*top: 50%;*/
@@ -48,4 +94,4 @@ ul {
     -webkit-animation-delay: 300ms;
     -moz-animation-delay: 300ms;
 }
-/* ===== ==== */
+ ===== ====
