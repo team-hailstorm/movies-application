@@ -28,7 +28,7 @@ $(document).ready( () => {
   });
 
   function renderLoading () {
-      $('#movie-display').html('<p class="mt-5 text-center">Loading<span>.</span><span>.</span><span>.</span></p>')
+      $('#movie-display').html('<p id="loading" class="mt-5 text-center">Loading<span>.</span><span>.</span><span>.</span></p>')
   }
 
 // getMovies - creates html structure for movie listings
